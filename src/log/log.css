@@ -1,0 +1,350 @@
+/* General Page Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Full Page Background */
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background: url("6204900.jpg") no-repeat center center fixed;
+  background-size: cover;
+  opacity: 1; /* Adjust the opacity to make it less transparent */
+  animation: fadeIn 0.1s ease-in-out; /* Apply fade-in animation */
+}
+
+/* Define the fade-in animation */
+
+
+/* Main Container */
+.journal-container {
+  display: flex;
+  /* Decrease or remove the height calculation if content gets cut off.
+     You can try 'height: calc(100vh - 120px);' or just 'height: auto;' */
+  height: calc(100vh - 120px); 
+  width: 100vw;
+  color: #333;
+  padding: 20px;
+  /* Increase margin-top from 70px to 100px or 120px (or any value you prefer) */
+  margin-top: 100px; 
+  gap: 25px; /* Space between panels */
+}
+
+
+/* Sidebar for Notes */
+.sidebar {
+  width: 30%;
+  background: linear-gradient(135deg, #fb4103, #2575fc);
+  padding: 20px;
+  border-radius: 19px;
+  height: calc(100% - 20px);
+  overflow-y: auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Add Note Button */
+.add-note-btn {
+  width: 100%;
+  padding: 12px;
+  background: #733706;
+  color: #0bbc34;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-note-btn:hover {
+  background: #0909b0;
+  color: #ffffff;
+}
+
+/* Notes List */
+.note-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Glowing Gold Note Cards */
+.note-item {
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid transparent;
+  color: white;
+  position: relative;
+}
+
+/* Glowing Effect on Hover */
+.note-item:hover {
+  border-color: gold;
+  box-shadow: 0 0 15px gold, 0 0 30px rgba(255, 215, 0, 0.6);
+  transform: scale(1.02);
+}
+
+/* Active Note */
+.note-item.active {
+  border: 2px solid gold !important;
+  box-shadow: 0px 5px 15px rgba(255, 215, 0, 1);
+  background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+}
+
+/* Note Text */
+.note-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: gold;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.note-item p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.note-content-area {
+  flex-grow: 1;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Remove any fixed height here so it can expand if needed */
+  /* height: calc(100% - 20px); */
+}
+
+/* Black Text Area */
+.note-textarea {
+  width: 100%;
+  /* Remove the fixed 80vh height */
+  /* height: 80vh; */
+  
+  /* Either allow the height to adjust automatically: */
+  height: auto;
+  
+  /* Or enforce a maximum height to avoid overflowing the page: */
+  max-height: 40vh;  /* Adjust as needed */
+  
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  /* Allow the user to resize if desired: */
+  resize: vertical;  /* or 'none' if you want to prevent resizing */
+  
+  /* Enable scrolling if content exceeds max-height: */
+  overflow-y: auto;
+  
+  background: black;
+  color: white;
+}
+/* Input Fields */
+.new-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.new-note-form input,
+.new-note-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #222, #333);
+  color: white;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background: #218838;
+}
+
+/* Loader Animation */
+.loader {
+  --w: 10ch;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  letter-spacing: var(--w);
+  width: var(--w);
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 
+    calc(-1 * var(--w)) 0,
+    calc(-2 * var(--w)) 0,
+    calc(-3 * var(--w)) 0,
+    calc(-4 * var(--w)) 0,
+    calc(-5 * var(--w)) 0,
+    calc(-6 * var(--w)) 0,
+    calc(-7 * var(--w)) 0,
+    calc(-8 * var(--w)) 0,
+    calc(-9 * var(--w)) 0;
+  animation: l16 2s infinite;
+}
+
+.loader:before {
+  content: "Loading...";
+}
+
+@keyframes l16 {
+  20% {
+    text-shadow: 
+      calc(-1 * var(--w)) 0,
+      calc(-2 * var(--w)) 0 red,
+      calc(-3 * var(--w)) 0,
+      calc(-4 * var(--w)) 0 #ffa516,
+      calc(-5 * var(--w)) 0 #63fff4,
+      calc(-6 * var(--w)) 0,
+      calc(-7 * var(--w)) 0,
+      calc(-8 * var(--w)) 0 green,
+      calc(-9 * var(--w)) 0;
+  }
+  40% {
+    text-shadow: 
+      calc(-1 * var(--w)) 0,
+      calc(-2 * var(--w)) 0 red,
+      calc(-3 * var(--w)) 0 #e945e9,
+      calc(-4 * var(--w)) 0,
+      calc(-5 * var(--w)) 0 green,
+      calc(-6 * var(--w)) 0 orange,
+      calc(-7 * var(--w)) 0,
+      calc(-8 * var(--w)) 0 green,
+      calc(-9 * var(--w)) 0;
+  }
+  60% {
+    text-shadow: 
+      calc(-1 * var(--w)) 0 lightblue,
+      calc(-2 * var(--w)) 0,
+      calc(-3 * var(--w)) 0 #e945e9,
+      calc(-4 * var(--w)) 0,
+      calc(-5 * var(--w)) 0 green,
+      calc(-6 * var(--w)) 0,
+      calc(-7 * var(--w)) 0 yellow,
+      calc(-8 * var(--w)) 0 #ffa516,
+      calc(-9 * var(--w)) 0 red;
+  }
+  80% {
+    text-shadow: 
+      calc(-1 * var(--w)) 0 lightblue,
+      calc(-2 * var(--w)) 0 yellow,
+      calc(-3 * var(--w)) 0 #63fff4,
+      calc(-4 * var(--w)) 0 #ffa516,
+      calc(-5 * var(--w)) 0 red,
+      calc(-6 * var(--w)) 0,
+      calc(-7 * var(--w)) 0 grey,
+      calc(-8 * var(--w)) 0 #63fff4,
+      calc(-9 * var(--w)) 0;
+  }
+}
+
+/* Style for the empty state container */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+  border-radius: 10px;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+
+.empty-state:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the empty image container */
+.empty-image-container {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #007BFF;
+  width: 80px;
+  height: 80px;
+}
+
+/* Styling for the title text */
+.empty-state-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Styling for the description text */
+.empty-state-description {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 25px;
+  max-width: 350px;
+}
+
+/* Styling for the "Create New Entry" button */
+.create-entry-btn {
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.2);
+}
+
+.create-entry-btn:hover {
+  background-color: #0056b3;
+}
+
+.create-entry-btn:focus {
+  outline: none;
+}
+
+.create-entry-btn:active {
+  transform: scale(0.98);
+}
